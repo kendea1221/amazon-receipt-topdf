@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon領収書ダウンロード</title>
+    <script src="html2pdf.js"></script>
+    <script src="popup.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2.5em;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #status {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        #preview {
+            margin-top: 20px;
+            max-width: 600px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            overflow: auto;
+            max-height: 300px;
+        }
+
+        #progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        #progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: #4caf50;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Amazon領収書ダウンロード</h1>
+    <input type="file" id="file-input" accept=".csv">
+    <button id="download-button">ダウンロード</button>
+    <div id="status"></div>
+    <div id="url-list"></div>
+    <h2>プレビュー</h2>
+    <div id="preview" style="border: 1px solid #ccc; padding: 10px; max-height: 300px; overflow-y: auto;"></div>
+</body>
+</html>
